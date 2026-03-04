@@ -9,9 +9,11 @@ The analyzer comes in two flavors to search for an observable in the platform:
 #### Requirements
 
 The OpenCTI analyzer requires you to have access to one or several [OpenCTI](https://www.opencti.io/en/)
- instances. You can also deploy your own instance.
- instances in version 4. You can also deploy your own instance.
+ instances. You can also deploy your own instance. Updated for versions with GraphQL, tested on OpenCTI 6.9.15. You can also deploy your own instance.
+
+Analyzer is tested to work as type docker.
 
 Three parameters are required for each instance to make the analyzer work:
 
 - `url` : URL of the instance, e.g. "https://demo.opencti.io"
+
