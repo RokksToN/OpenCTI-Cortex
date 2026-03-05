@@ -32,15 +32,14 @@ This analyzer is natively packaged as a Docker image and properly configured in 
 
 Example configuration in `application.conf` (or via Cortex UI):
 ```hocon
-Analyzer {
-  config {
-    OpenCTI {
-      name = ["My OpenCTI"]
-      url = ["https://opencti.my-domain.com"]
-      key = ["YOUR_API_KEY_HERE"]
-      cert_check = true
-    }
-  }
+analyzer {
+  # analyzer location
+  # url needs to point at location where analyzers.json is stored
+  urls = [
+    "https://catalogs.download.strangebee.com/latest/json/analyzers.json"
+    #"/absolute/path/of/analyzers.json" 
+  ]
+  ...
 }
 ```
 
@@ -75,3 +74,4 @@ docker build -t opencti-analyzer .
 echo '{...}' | docker run -i --rm opencti-analyzer
 ```
 *(Replace `{...}` with the JSON payload shown in Method A)*
+
