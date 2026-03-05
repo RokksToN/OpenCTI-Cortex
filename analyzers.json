@@ -68,7 +68,7 @@
       "caption": "logo"
     },
     "screenshots": [],
-    "dockerImage": "roksi/opencti_searchexactobservable:3.0"
+    "dockerImage": "ghcr.io/rokkston/opencti_searchexactobservable:3.0"
   },
   {
     "name": "OpenCTI_SearchObservables",
@@ -139,6 +139,7 @@
       "caption": "logo"
     },
     "screenshots": [],
-    "dockerImage": "roksi/opencti_searchobservables:3.0"
+    "dockerImage": "ghcr.io/rokkston/opencti_searchobservable:3.0"
   }
 ]
+
