@@ -1,19 +1,77 @@
+# OpenCTI Cortex Analyzer
+
 [OpenCTI](https://www.opencti.io/en/) is an open cyber threat intelligence platform which aims at providing a powerful knowledge management database with an enforced schema especially tailored for cyber threat intelligence and cyber operations and based on STIX 2.
 
-The analyzer comes in only one flavor to look for an observable in the platform.
+## Flavors
+
 The analyzer comes in two flavors to search for an observable in the platform:
 
-- OpenCTI_**SearchExactObservable**: returns an exact match only
-- OpenCTI_**SearchObservables**: returns all observables containing the input data
+- **OpenCTI_SearchExactObservable**: Returns an exact match of the input data from OpenCTI.
+- **OpenCTI_SearchObservables**: Returns all observables containing the input data.
 
-#### Requirements
+## Supported Data Types
+`domain`, `ip`, `url`, `fqdn`, `uri_path`, `user-agent`, `hash`, `mail`, `mail_subject`, `registry`, `regexp`, `other`, `filename`, `mail-subject`
 
-The OpenCTI analyzer requires you to have access to one or several [OpenCTI](https://www.opencti.io/en/)
- instances. You can also deploy your own instance. Updated for versions with GraphQL, tested on OpenCTI 6.9.15. You can also deploy your own instance.
+## Requirements & Configuration
 
-Analyzer is tested to work as type docker.
+The OpenCTI analyzer requires you to have access to one or several OpenCTI instances. 
 
-Three parameters are required for each instance to make the analyzer work:
+The following parameters must be configured in Cortex for the analyzer to work (in the `OpenCTI` configuration section):
 
-- `url` : URL of the instance, e.g. "https://demo.opencti.io"
+- **`name`** (List of Strings): Name(s) of the OpenCTI server(s).
+- **`url`** (List of Strings): URL(s) of the OpenCTI server(s).
+- **`key`** (List of Strings): API key(s) (token) for the OpenCTI server(s).
+- **`cert_check`** (Boolean): Verify server certificate (default: `true`).
 
+*Note: If querying multiple instances simultaneously, ensure that the `name`, `url`, and `key` lists contain the same number of elements in the corresponding order.*
+
+## How to Run
+
+### 1. In Cortex (Using Docker)
+This analyzer is natively packaged as a Docker image and properly configured in `analyzers.json`. You can import this analyzer into Cortex and run it using the Docker executor. 
+
+Example configuration in `application.conf` (or via Cortex UI):
+```hocon
+Analyzer {
+  config {
+    OpenCTI {
+      name = ["My OpenCTI"]
+      url = ["https://opencti.my-domain.com"]
+      key = ["YOUR_API_KEY_HERE"]
+      cert_check = true
+    }
+  }
+}
+```
+
+### 2. Manual / Local Testing
+
+To test the analyzer locally without Cortex, you can feed a Cortex JSON job representation to `opencti.py` via `stdin`.
+
+**Method A: Python environment**
+1. Install Python requirements:
+   ```bash
+   pip3 install -r requirements.txt
+   ```
+2. Run a query:
+   ```bash
+   echo '{
+     "data": "1.1.1.1",
+     "dataType": "ip",
+     "config": {
+       "name": ["Demo"],
+       "url": ["https://demo.opencti.io"],
+       "key": ["YOUR_API_KEY"],
+       "cert_check": true,
+       "service": "search_exact"
+     }
+   }' | python3 opencti.py
+   ```
+
+**Method B: Docker**
+You can run the analyzer manually within its Docker container:
+```bash
+docker build -t opencti-analyzer .
+echo '{...}' | docker run -i --rm opencti-analyzer
+```
+*(Replace `{...}` with the JSON payload shown in Method A)*
