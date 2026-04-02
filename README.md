@@ -33,7 +33,7 @@ The following parameters must be configured in Cortex for the analyzer to work (
 
 ## How to Run
 
-### 1. In Cortex (Using Docker)
+### 1. In Cortex (Using Docker) - recommended
 This analyzer is natively packaged as a Docker image and properly configured in `analyzers.json`. You can import this analyzer into Cortex and run it using the Docker executor. 
 
 Example configuration in `application.conf` (or via Cortex UI):
