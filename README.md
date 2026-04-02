@@ -5,8 +5,8 @@
 
 [Cortex](https://github.com/thehive-project/Cortex/) solves two common problems frequently encountered by SOCs, CSIRTs and security researchers in the course of threat intelligence, digital forensics and incident response:
 
-    - How to analyze observables they have collected, at scale, by querying a single tool instead of several?
-    - How to actively respond to threats and interact with the constituency and other teams?
+- How to analyze observables they have collected, at scale, by querying a single tool instead of several?
+- How to actively respond to threats and interact with the constituency and other teams?
 
 ## Flavors
 
