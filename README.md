@@ -1,6 +1,7 @@
 # OpenCTI Cortex Analyzer
 
 [OpenCTI](https://www.opencti.io/en/) is an open cyber threat intelligence platform which aims at providing a powerful knowledge management database with an enforced schema especially tailored for cyber threat intelligence and cyber operations and based on STIX 2.
+![octi-dashboard_fs_bg-02072024](https://github.com/user-attachments/assets/120cc906-4fd5-4261-a1f6-6cfd89e240ac)
 
 ## Flavors
 
