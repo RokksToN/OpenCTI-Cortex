@@ -1,7 +1,7 @@
 # OpenCTI Cortex Analyzer
 
 [OpenCTI](https://www.opencti.io/en/) is an open cyber threat intelligence platform which aims at providing a powerful knowledge management database with an enforced schema especially tailored for cyber threat intelligence and cyber operations and based on STIX 2.
-![octi-dashboard_fs_bg-02072024](https://github.com/user-attachments/assets/120cc906-4fd5-4261-a1f6-6cfd89e240ac)
+<img width="1915" height="942" alt="opencti-dash" src="https://github.com/user-attachments/assets/455a4dbf-9e0b-4914-b970-4c269632534b" />
 
 [Cortex](https://github.com/thehive-project/Cortex/) solves two common problems frequently encountered by SOCs, CSIRTs and security researchers in the course of threat intelligence, digital forensics and incident response:
 
