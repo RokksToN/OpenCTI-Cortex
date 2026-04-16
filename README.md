@@ -84,3 +84,4 @@ echo '{...}' | docker run -i --rm opencti-analyzer
 ```
 *(Replace `{...}` with the JSON payload shown in Method A)*
 
+*The previous v2 analyzer was incompatible with recent OpenCTI releases. This v3 version was created to fix those compatibility issues and provide a stable production-ready alternative.*
