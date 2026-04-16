@@ -74,7 +74,7 @@ To test the analyzer locally without Cortex, you can feed a Cortex JSON job repr
    ```
 
 **Method B: Docker (recommended)**
-You can run the analyzer manually within its Docker container:
+You can run the analyzer manually within its Docker container without polluting your environment:
 ```bash
 docker build -t opencti-analyzer .
 echo '{...}' | docker run -i --rm opencti-analyzer
